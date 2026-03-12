@@ -68,10 +68,7 @@ async function handleCallback(details) {
   await chrome.storage.local.set({
     last_result: {
       status: r.status,
-      ok: r.ok,
-      connected: r.ok,
-      scope: data.scope || null,
-      expires_in: data.expires_in || null,
+      ok: r.ok && !!data.connected,
       error: data.detail || null,
       timestamp: new Date().toISOString(),
     },
