@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: sans-serif; padding: 16px; width: 320px; margin: 0; }
+    h3 { margin: 0 0 12px; font-size: 14px; color: #111; }
+    .status { padding: 10px 12px; border-radius: 6px; font-size: 12px; margin-bottom: 14px; }
+    .status.connected  { background: #e8f5e9; color: #2e7d32; }
+    .status.idle       { background: #f5f5f5; color: #777; }
+    .status.error      { background: #ffebee; color: #c62828; }
+    .status-row { margin: 2px 0; }
+    .divider { border: none; border-top: 1px solid #eee; margin: 12px 0; }
+    details { font-size: 11px; color: #888; }
+    summary { cursor: pointer; margin-bottom: 8px; }
+    label { display: block; font-size: 11px; font-weight: bold; color: #555; margin-bottom: 3px; }
+    input {
+      width: 100%; box-sizing: border-box; padding: 5px 7px;
+      font-size: 11px; border: 1px solid #ccc; border-radius: 4px;
+      margin-bottom: 8px; font-family: monospace;
+    }
+    button {
+      padding: 6px 12px; font-size: 11px; cursor: pointer;
+      background: #0066cc; color: white; border: none; border-radius: 4px;
+    }
+    button:hover { background: #0055aa; }
+    .saved { color: green; font-size: 11px; margin-left: 8px; display: none; }
+  </style>
+</head>
+<body>
+  <h3>Faces – Connect ChatGPT</h3>
+
+  <div id="status-box" class="status idle">Not connected</div>
+
+  <hr class="divider">
+
+  <details>
+    <summary>Developer settings</summary>
+    <label>Backend URL</label>
+    <input type="text" id="api_base" placeholder="http://localhost:8000" />
+    <label>JWT (override — normally synced automatically)</label>
+    <input type="text" id="jwt" placeholder="eyJhbGci..." />
+    <button id="save">Save</button>
+    <span class="saved" id="saved-msg">Saved ✓</span>
+  </details>
+
+  <script src="popup.js"></script>
+</body>
+</html>

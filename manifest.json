@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Faces – Connect ChatGPT",
+  "version": "0.1.0",
+  "description": "Connect your ChatGPT Plus or Pro account to Faces so your AI requests route through your own subscription.",
+  "permissions": ["webNavigation", "storage", "tabs"],
+  "host_permissions": [
+    "http://localhost:1455/*",
+    "http://localhost:8000/*",
+    "http://localhost:3000/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://localhost:3000/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Faces – Connect ChatGPT",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  }
+}
