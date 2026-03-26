@@ -12,6 +12,7 @@
 //    event so the frontend can react without a page reload.
 
 // --- 1. Signal extension presence ---
+console.log("[Faces] Content script injected on:", window.location.href);
 sessionStorage.setItem("faces_extension_installed", "1");
 window.dispatchEvent(new CustomEvent("faces:extension-ready", {
   detail: { version: chrome.runtime.getManifest().version }
