@@ -34,7 +34,7 @@ async function handleCallback(details) {
   });
 
   const { jwt, api_base } = await chrome.storage.local.get(["jwt", "api_base"]);
-  const base = (api_base || "http://localhost:8000").replace(/\/$/, "");
+  const base = (api_base || "https://api.faces.sh").replace(/\/$/, "");
 
   if (!jwt) {
     await chrome.tabs.update(details.tabId, {
@@ -76,7 +76,7 @@ async function handleCallback(details) {
 
   if (r.ok) {
     // Notify any open Faces tabs so they can update without a reload.
-    const facesTabPatterns = ["http://localhost:3000/*"];
+    const facesTabPatterns = ["http://localhost:3000/*", "https://faces.sh/*"];
     const frontendTabs = await chrome.tabs.query({});
     for (const tab of frontendTabs) {
       const matchesFaces = facesTabPatterns.some(

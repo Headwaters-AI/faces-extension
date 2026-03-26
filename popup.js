@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   ]);
 
   document.getElementById("jwt").value = jwt || "";
-  document.getElementById("api_base").value = api_base || "http://localhost:8000";
+  document.getElementById("api_base").value = api_base || "https://api.faces.sh";
 
   renderStatus(last_result);
 
